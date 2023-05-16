@@ -1,0 +1,8 @@
+# TODO markdown file for any local projects where keeping track of TODOS is necessary
+TODO.md
+
+# environment variables per project
+.env
+
+# ignore dotfiles bare repository
+.dotfiles

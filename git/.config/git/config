@@ -1,0 +1,10 @@
+[user]
+	name = Alkiviadroot
+	email = alkiviadroot@pm.me
+[core]
+	excludesfile = $HOME/.config/git/gitignore_global
+	editor = vim
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
