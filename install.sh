@@ -18,7 +18,7 @@ nix-env -iA \
 	nixpkgs.neovim \
 	nixpkgs.tmux \
 	nixpkgs.stow \
-	
+	nixpkgs.gh \
 	nixpkgs.yarn \
 	nixpkgs.fzf \
 	nixpkgs.ripgrep \
