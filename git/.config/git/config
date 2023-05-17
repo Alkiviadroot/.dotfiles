@@ -8,3 +8,9 @@
 	ff = only
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/stelios/.nix-profile/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/stelios/.nix-profile/bin/gh auth git-credential
