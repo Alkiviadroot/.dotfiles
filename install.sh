@@ -14,7 +14,6 @@ fi
 
 # install packages
 nix-env -iA \
-	nixpkgs.zsh \
 	nixpkgs.neovim \
 	nixpkgs.tmux \
 	nixpkgs.stow \
