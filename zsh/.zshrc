@@ -1,5 +1,4 @@
-# Intitial command
-pfetch
+
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR="nvim"
@@ -87,3 +86,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+# Intitial command
+colorscript -r
