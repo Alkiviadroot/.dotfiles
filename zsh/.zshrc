@@ -1,6 +1,3 @@
-
-
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR="nvim"
 export PATH=$PATH:/usr/local/go/bin
 
@@ -65,19 +62,18 @@ source "$HOME/.config/zsh/plugins/zsh-interactive-cd.zsh"
 
 # Source Aliases
 source "$HOME/.config/zsh/alias/alias.zsh"
-source "$HOME/.dotfiles/scripts/alias.zsh"
 
 # Keybindings for history-substring-search 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Source Nix
-if [ -e /home/stelios/.nix-profile/etc/profile.d/nix.sh ]; then 
-  . /home/stelios/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then 
+  . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 
 
 # Spaceship Prompt
-source "$HOME/.config/zsh/spaceship/spaceship.zsh"
+eval "$(starship init zsh)"
 
 # pnpm
 export PNPM_HOME="/home/stelios/.local/share/pnpm"
