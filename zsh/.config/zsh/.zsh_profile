@@ -1,0 +1,37 @@
+# Other XDG paths
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
+
+# Default Apps
+export EDITOR="nvim"
+
+export VISUAL="nvim"
+export TERMINAL="alacritty"
+export BROWSER="firefox"
+export VIDEO="mpv"
+export COLORTERM="truecolor"
+export PAGER="less"
+export OPENER="xdg-open"
+
+export IMAGE="sxiv"
+
+export WM="bspwm"
+export READER="zathura"
+
+# Paths
+export PATH=$HOME/.local/scripts:$PATH
+
+# Programs Sources
+
+# Source Nix
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then 
+  . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

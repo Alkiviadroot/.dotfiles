@@ -1,12 +1,9 @@
-export EDITOR="nvim"
-export PATH=$PATH:/usr/local/go/bin
-
 autoload -U colors && colors
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.cache/.zsh_history
+HISTFILE=$HOME/.cache/.zsh_history
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -16,7 +13,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)	
-
 
 # Use vim keybindings
 bindkey -v
@@ -43,7 +39,6 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
@@ -54,6 +49,9 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Tmux-Sessionizer
+bindkey -s ^f "tmux-sessionizer\n"
+
 # Source Plugins
 source "$HOME/.config/zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/.config/zsh/plugins/zsh-autosuggestions.zsh"
@@ -63,24 +61,19 @@ source "$HOME/.config/zsh/plugins/zsh-interactive-cd.zsh"
 # Source Aliases
 source "$HOME/.config/zsh/alias/alias.zsh"
 
+# Source ZSH profile
+source "$HOME/.config/zsh/.zsh_profile"
+
 # Keybindings for history-substring-search 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# Source Nix
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then 
-  . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+# Setting for the new UTF-8 terminal support in Lion
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-
-# Spaceship Prompt
+# Starship Prompt
 eval "$(starship init zsh)"
 
-# pnpm
-export PNPM_HOME="/home/stelios/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 # Intitial command
-colorscript -r
+clear && colorscript -r 2> /dev/null
